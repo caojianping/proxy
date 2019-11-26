@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+# add by cjp
+/.git
+/.idea
+/node_modules
+/dist
+/logs
+/web
+/package-lock.json

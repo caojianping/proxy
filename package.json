@@ -1,0 +1,44 @@
+{
+    "name": "proxy",
+    "version": "1.0.0",
+    "description": "Caojianping's proxy.",
+    "main": "dist/main.js",
+    "types": "dist/main.d.ts",
+    "dependencies": {
+        "config": "^3.2.4",
+        "http-proxy-middleware": "^0.20.0",
+        "koa": "^2.11.0",
+        "koa-send": "^5.0.0",
+        "koa2-connect": "^1.0.2"
+    },
+    "devDependencies": {
+        "@types/config": "0.0.36",
+        "@types/http-proxy-middleware": "^0.19.3",
+        "@types/koa": "^2.0.52",
+        "@types/koa-send": "^4.1.2",
+        "nodemon": "^2.0.1",
+        "ts-node": "^8.5.2",
+        "typescript": "^3.7.2"
+    },
+    "scripts": {
+        "start": "nodemon --watch src -e ts,tsx --exec ts-node src/main.ts",
+        "tsc": "tsc",
+        "build": "npm run tsc && pm2 start ./dist/main.js --name=\"proxy\" --watch"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/caojianping/proxy.git"
+    },
+    "keywords": [
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "proxy"
+    ],
+    "author": "caojianping",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/caojianping/proxy/issues"
+    },
+    "homepage": "https://github.com/caojianping/proxy#readme"
+}
