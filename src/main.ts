@@ -15,10 +15,13 @@ const proxyConnect = function (key: string, options: any) {
 	}
 };
 
-let apis = config.get<any>("apis"),
-	keys = Object.keys(apis) || [];
+const apis = config.get<any>("apis") || {};
+const env = process.env.NODE_ENV || "development";
+const configs = apis[env] || {};
+const keys = Object.keys(configs) || [];
+console.log("[proxy] env,configs:", env, configs);
 keys.forEach((key: string) => {
-	let value = apis[key] || {},
+	let value = configs[key] || {},
 		options = Object.assign({}, value);
 	if (!options["changeOrigin"]) {
 		options["changeOrigin"] = true;

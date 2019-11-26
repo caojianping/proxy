@@ -9,7 +9,7 @@ export default (root: any, opts?: any) => {
 	opts.setHeaders = function (res: any, path: string, stats: any) {
 		res.setHeader("Cache-Control", "private");
 	};
-	console.log("opts:", opts);
+
 	if (opts.index !== false) {
 		opts.index = opts.index || "index.html";
 	}
