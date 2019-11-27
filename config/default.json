@@ -1,5 +1,4 @@
 {
-    "static": "web",
     "apis": {
         "development": {
             "/hfcatv-activity": {
@@ -11,5 +10,6 @@
                 "target": "http://localhost:9000"
             }
         }
-    }
+    },
+    "static": "web"
 }
