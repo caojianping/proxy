@@ -5,10 +5,10 @@
     "main": "dist/main.js",
     "types": "dist/main.d.ts",
     "scripts": {
+        "start": "nodemon --watch src -e ts,tsx --exec ts-node src/main.ts",
         "tsc": "tsc",
-        "nodemon": "nodemon --watch src -e ts,tsx --exec ts-node src/main.ts",
-        "start": "npm run tsc &&pm2 start ecosystem.config.js --env development",
-        "build": "npm run tsc &&pm2 start ecosystem.config.js --env production"
+        "tsc:dev": "npm run tsc &&pm2 start ecosystem.config.js --env development",
+        "tsc:prod": "npm run tsc &&pm2 start ecosystem.config.js --env production"
     },
     "dependencies": {
         "config": "^3.2.4",

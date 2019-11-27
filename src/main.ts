@@ -19,7 +19,6 @@ const apis = config.get<any>("apis") || {};
 const env = process.env.NODE_ENV || "development";
 const configs = apis[env] || {};
 const keys = Object.keys(configs) || [];
-console.log("[proxy] env,configs:", env, configs);
 keys.forEach((key: string) => {
 	let value = configs[key] || {},
 		options = Object.assign({}, value);
@@ -30,7 +29,7 @@ keys.forEach((key: string) => {
 	app.use(proxyConnect(key, options));
 });
 
-const port = config.get<number>("port");
+const port = process.env.PORT || 80;
 app.listen(port, function () {
 	console.log("Server start at " + port + " port!");
 });
