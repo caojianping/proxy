@@ -66,5 +66,4 @@ typings/
 /node_modules
 /dist
 /logs
-/web
-/package-lock.json
+/static

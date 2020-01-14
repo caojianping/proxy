@@ -1,15 +1,4 @@
 {
-    "apis": {
-        "development": {
-            "/hfcatv-activity": {
-                "target": "http://localhost:9000"
-            }
-        },
-        "production": {
-            "/hfcatv-activity": {
-                "target": "http://localhost:9000"
-            }
-        }
-    },
-    "static": "web"
+    "port": 80,
+    "staticPath": "static"
 }

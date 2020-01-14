@@ -1,0 +1,7 @@
+{
+    "apis": {
+        "/hfcatv-activity": {
+            "target": "http://localhost:9000"
+        }
+    }
+}

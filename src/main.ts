@@ -7,33 +7,31 @@ import {headerMiddleware, staticMiddleware} from "./middleware";
 
 const app = new Koa();
 app.use(headerMiddleware());
-app.use(staticMiddleware(path.join(__dirname, "../", config.get<string>("static"))));
+app.use(staticMiddleware(path.join(__dirname, "../", config.get<string>("staticPath"))));
 
 const proxyConnect = function (key: string, options: any) {
-	return async function (ctx, next) {
-		await koaConnect(httpProxyMiddleware(key, options))(ctx, next);
-	}
+    return async function (ctx, next) {
+        await koaConnect(httpProxyMiddleware(key, options))(ctx, next);
+    }
 };
 
 const apis = config.get<any>("apis") || {};
-const env = process.env.NODE_ENV || "development";
-const configs = apis[env] || {};
-const keys = Object.keys(configs) || [];
+const keys = Object.keys(apis) || [];
 keys.forEach((key: string) => {
-	let value = configs[key] || {},
-		options = Object.assign({}, value);
-	if (!options["changeOrigin"]) {
-		options["changeOrigin"] = true;
-	}
-	console.log("[proxy] key,options:", key, options);
-	app.use(proxyConnect(key, options));
+    let value = apis[key] || {},
+        options = Object.assign({}, value);
+    if (!options["changeOrigin"]) {
+        options["changeOrigin"] = true;
+    }
+    console.log("[proxy] key,options:", key, options);
+    app.use(proxyConnect(key, options));
 });
 
-const port = process.env.PORT || 80;
+const port = config.get<number>("port") || 80;
 app.listen(port, function () {
-	console.log("Server start at " + port + " port!");
+    console.log("Server start at " + port + " port!");
 });
 
 app.on("error", function (err: any) {
-	console.error("[proxy] error:", err);
+    console.error("[proxy] error:", err);
 });
