@@ -14,6 +14,8 @@
         "config": "^3.2.4",
         "http-proxy-middleware": "^0.20.0",
         "koa": "^2.11.0",
+        "koa-convert": "^1.2.0",
+        "koa-cors": "^0.0.16",
         "koa-send": "^5.0.0",
         "koa2-connect": "^1.0.2"
     },
@@ -21,6 +23,8 @@
         "@types/config": "0.0.36",
         "@types/http-proxy-middleware": "^0.19.3",
         "@types/koa": "^2.0.52",
+        "@types/koa-convert": "^1.2.3",
+        "@types/koa-cors": "^0.0.0",
         "@types/koa-send": "^4.1.2",
         "nodemon": "^2.0.1",
         "ts-node": "^8.5.2",

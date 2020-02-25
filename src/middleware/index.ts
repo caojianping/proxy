@@ -1,7 +1,4 @@
-import headerMiddleware from "./header.middleware";
-import staticMiddleware from "./static.middleware";
+import headerMiddleware from './header.middleware';
+import staticMiddleware from './static.middleware';
 
-export {
-    headerMiddleware,
-    staticMiddleware
-};
+export { headerMiddleware, staticMiddleware };
