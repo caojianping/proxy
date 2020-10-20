@@ -6,7 +6,7 @@ export default (root: any, opts?: any) => {
     opts = Object.assign({}, opts || {});
     opts.root = resolve(root);
 
-    opts.setHeaders = function(res: any, path: string, stats: any) {
+    opts.setHeaders = function (res: any, path: string, stats: any) {
         res.setHeader('Cache-Control', 'private');
     };
 
@@ -15,14 +15,10 @@ export default (root: any, opts?: any) => {
     }
 
     if (!opts.defer) {
-        return async function(ctx: Context, next: Function) {
+        return async function (ctx: Context, next: Function) {
             let done: any = false;
 
-            if (
-                ctx.method === 'HEAD' ||
-                ctx.method === 'GET' ||
-                ctx.method === 'POST'
-            ) {
+            if (ctx.method === 'HEAD' || ctx.method === 'GET' || ctx.method === 'POST') {
                 try {
                     done = await koaSend(ctx, ctx.path, opts);
                 } catch (err) {
@@ -41,12 +37,7 @@ export default (root: any, opts?: any) => {
     return async (ctx: Context, next: Function) => {
         await next();
 
-        if (
-            ctx.method !== 'HEAD' &&
-            ctx.method !== 'GET' &&
-            ctx.method !== 'POST'
-        )
-            return;
+        if (ctx.method !== 'HEAD' && ctx.method !== 'GET' && ctx.method !== 'POST') return;
         if (ctx.body != null || ctx.status !== 404) return;
 
         try {

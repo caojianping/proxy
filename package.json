@@ -1,7 +1,7 @@
 {
     "name": "proxy",
     "version": "1.0.0",
-    "description": "Caojianping's proxy.",
+    "description": "基于Koa2.0、TypeScript封装的http代理服务。",
     "main": "dist/main.js",
     "types": "dist/main.d.ts",
     "scripts": {
@@ -45,5 +45,10 @@
     "bugs": {
         "url": "https://github.com/caojianping/proxy/issues"
     },
-    "homepage": "https://github.com/caojianping/proxy#readme"
+    "homepage": "https://github.com/caojianping/proxy#readme",
+    "prettier": {
+        "printWidth": 120,
+        "tabWidth": 4,
+        "singleQuote": true
+    }
 }

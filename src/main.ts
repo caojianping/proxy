@@ -10,14 +10,10 @@ import { headerMiddleware, staticMiddleware } from './middleware';
 const app = new Koa();
 app.use(koaConvert(koaCors()));
 app.use(headerMiddleware());
-app.use(
-    staticMiddleware(
-        path.join(__dirname, '../', config.get<string>('staticPath'))
-    )
-);
+app.use(staticMiddleware(path.join(__dirname, '../', config.get<string>('staticPath'))));
 
-const proxyConnect = function(key: string, options: any) {
-    return async function(ctx, next) {
+const proxyConnect = function (key: string, options: any) {
+    return async function (ctx, next) {
         await koaConnect(httpProxyMiddleware(key, options))(ctx, next);
     };
 };
@@ -35,10 +31,10 @@ keys.forEach((key: string) => {
 });
 
 const port = config.get<number>('port') || 80;
-app.listen(port, function() {
+app.listen(port, function () {
     console.log('Server start at ' + port + ' port!');
 });
 
-app.on('error', function(err: any) {
+app.on('error', function (err: any) {
     console.error('[proxy] error:', err);
 });

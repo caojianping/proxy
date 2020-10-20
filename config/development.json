@@ -1,10 +1,7 @@
 {
     "apis": {
-        "/hfcatv-activity": {
-            "target": "http://localhost:9000"
-        },
-        "/superlockadmin": {
-            "target": "https://tccall.scvip.vip/admin"
+        "/api": {
+            "target": "http://www.demo.com"
         }
     }
 }
